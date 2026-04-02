@@ -1,27 +1,8 @@
-
 import ProfileBanner from "@/components/ProfileBanner";
 import ProfilePic from "@/components/ProfilePic"
 import SpicyLyricsHoverCard from "./custom/SpicyLyricsHoverCard";
-import { useQuery } from "@tanstack/react-query";
-import { useProfile } from "@/zustand/useProfile";
-import { useEffect } from "react";
 
 const ProfileTop = () => {
-    const profileQuery = useQuery({
-        queryKey: ["profile-q"],
-        queryFn: async () => {
-            const req = await fetch("https://example.com/profile");
-            return await req.json();
-        },
-        staleTime: 900 * 1000,
-    })
-
-    const updateProfile = useProfile((obj) => obj.update);
-
-    useEffect(() => {
-        updateProfile(profileQuery.data);
-    }, [profileQuery.data])
-
     return (
         <div className="relative z-[5] w-full h-full">
             <div className="w-full h-auto max-h-50 rounded xs:rounded-2xl shadow-xl flex items-center justify-center relative overflow-hidden z-[1]">
