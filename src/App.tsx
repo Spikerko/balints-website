@@ -34,7 +34,6 @@ function App() {
 
   return (
     <>
-      <Background />
       {pathname === "/" ? (
         <Suspense fallback={
           <div className="fixed inset-0 z-9999 flex items-center justify-center w-full h-full">
